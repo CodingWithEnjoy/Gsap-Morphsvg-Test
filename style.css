@@ -1,3 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Play", sans-serif;
+  transition: 0.4s;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+nav {
+  height: 7rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  display: flex;
+  position: sticky;
+  z-index: 10;
+}
+
+.logo {
+  padding: 1vh 5vw;
+  margin-top: 7px;
+  text-align: center;
+  font-size: 33px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  width: 88vw;
+  padding: 0 0.7vw;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  margin: 0 0.7vw;
+}
+
+.nav-links li:last-child {
+  outline: 2px solid #61dafb;
+  outline-offset: 20px;
+  margin-left: 150px;
+}
+
+.nav-links li a:hover {
+  color: #61dafb;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li a::before {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0%;
+  background-color: #61dafb;
+  position: absolute;
+  transition: all ease-in-out 250ms;
+  margin: 30px 0 0 10%;
+}
+
+.nav-links li a:hover::before {
+  width: 80%;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background: #f2f5f7;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  nav {
+    position: sticky;
+    z-index: 3;
+    justify-content: space-evenly;
+  }
+
+  .logo {
+    padding: 1vh 1vw;
+    margin-top: 23px;
+    text-align: center;
+    font-size: 33px;
+    font-weight: 900;
+    color: #ffffff;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 2;
+    transition: all 0.7s ease;
+  }
+
+  .nav-links {
+    position: fixed;
+    background: #131418;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: 100px;
+    clip-path: circle(50px at 90% -20%);
+    -webkit-clip-path: circle(50px at 90% -10%);
+    transition: all 1s ease-out;
+    pointer-events: none;
+  }
+
+  .nav-links.open {
+    clip-path: circle(1000px at 90% -10%);
+    -webkit-clip-path: circle(1000px at 90% -10%);
+    pointer-events: all;
+  }
+
+  .nav-links li {
+    opacity: 0;
+  }
+
+  .nav-links li:nth-child(1) {
+    transition: all 0.5s ease 0.2s;
+  }
+
+  .nav-links li:nth-child(2) {
+    transition: all 0.5s ease 0.4s;
+  }
+
+  .nav-links li:nth-child(3) {
+    transition: all 0.5s ease 0.6s;
+  }
+
+  .nav-links li:nth-child(4) {
+    transition: all 0.5s ease 0.7s;
+  }
+
+  .nav-links li:nth-child(5) {
+    transition: all 0.5s ease 0.8s;
+  }
+
+  .nav-links li:nth-child(6) {
+    transition: all 0.5s ease 0.9s;
+    margin: 0;
+  }
+
+  .nav-links li:nth-child(7) {
+    transition: all 0.5s ease 1s;
+    margin: 0;
+  }
+
+  li.fade {
+    opacity: 1;
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  transition: all 0.7s ease;
+  width: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.home {
+  height: 100vh;
+  position: relative;
+  margin-top: -112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-content {
+  position: relative;
+  padding-top: 100px;
+  color: #fff;
+  text-align: center;
+}
+
+.home h1 {
+  font-size: clamp(45px, 7vw, 130px);
+  line-height: 1.1;
+}
+
+.home p {
+  font-size: 80px;
+  margin-top: 10px;
+}
+
+.home-content button {
+  display: block;
+  font-size: clamp(14px, 1.5vw, 18px);
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  margin: 50px auto 0;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
 .flex,
 .flex__col {
   display: flex;
@@ -202,5 +446,44 @@ main.flex__col {
   }
   .starSvg {
     width: 70px;
+  }
+}
+
+.ax {
+  height: 1000vh;
+  background: #000 !important;
+  z-index: 999;
+  margin-top: 0px;
+}
+
+.ax svg {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin-top: 10px;
+}
+
+.scrollElement {
+  position: absolute;
+  height: 6000px;
+  width: 100px;
+  top: 0;
+  z-index: 0;
+  margin-top: 5000px;
+}
+
+.ax2 {
+  height: 1000vh;
+  background: #000 !important;
+  z-index: 999;
+  margin-top: 0px;
+}
+
+@media (max-width: 700px) {
+  .ax2 {
+    width: 100px;
   }
 }
